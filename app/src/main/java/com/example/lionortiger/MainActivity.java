@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
     public void imageViewIsClicked(View tappedImage){
         ImageView img=(ImageView) tappedImage;
         img.setTranslationX(-2000);
