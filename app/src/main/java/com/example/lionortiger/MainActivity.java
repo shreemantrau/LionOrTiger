@@ -9,6 +9,10 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
+    enum Player{
+        ONE,TWO
+    }
+    Player currentPLayer = Player.ONE;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,7 +21,13 @@ public class MainActivity extends AppCompatActivity {
     public void imageViewIsClicked(View tappedImage){
         ImageView img=(ImageView) tappedImage;
         img.setTranslationX(-2000);
-        img.setImageResource(R.drawable.lion);
+        if(currentPLayer == Player.ONE) {
+            img.setImageResource(R.drawable.lion);
+            currentPLayer=Player.TWO;
+        } else if(currentPLayer == Player.TWO){
+            img.setImageResource(R.drawable.tiger);
+            currentPLayer=Player.ONE;
+        }
         img.animate().translationXBy(2000).rotation(3600).setDuration(2000);
     }
 }
